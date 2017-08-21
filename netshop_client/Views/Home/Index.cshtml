@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h1> Catalog </h1>
+<table class='table table-striped table-responsive table-hover'>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Category</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	@foreach(var product in ViewData["products"] as List<netshop_client.Models.Product>)
+    {
+		<tr>
+			<td>@product.Name</td>
+			<td>@product.Price €</td>
+			<td>@product.CategoryId</td>
+			<td><a class="btn btn-success" href="/Cart/Add/@product.ProductId"> Buy</a></td>
+		</tr>
+    }	
+	</tbody>
+</table>

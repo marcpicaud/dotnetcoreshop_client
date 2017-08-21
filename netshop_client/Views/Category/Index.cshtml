@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Category List";
+}
+
+<h2>Category List</h2>
+
+<a  class="btn btn-success pull-right" href='/Category/Create'>Create Category</a>
+<table class="table table-hover table-striped table-responsive table-bordered">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model) 
+		{
+        <tr>
+			<td>@item.Name</td>         
+			<td>
+				<a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-default">Edit</a>
+				<a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger">Delete</a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

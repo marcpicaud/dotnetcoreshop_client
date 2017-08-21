@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "User List";
+}
+
+<h2>User List</h2>
+
+<a  class="btn btn-success pull-right" href='/User/Create'>Create User</a>
+<table class="table table-hover table-striped table-responsive table-bordered">
+	<thead>
+		<tr>
+			<th>First Name</th>
+		    <th>Last Name</th>
+		    <th>Login</th>
+			<th>Password</th>
+			<th>Admin</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model) 
+		{
+        <tr>
+			<td>@item.Firstname</td>
+			<td>@item.Lastname</td>
+			<td>@item.Login</td>
+			<td>@item.Password</td>
+			<td>@item.Admin</td>
+			<td>
+				<a asp-action="Edit" asp-route-id="@item.UserId" class="btn btn-default">Edit</a>
+				<a asp-action="Delete" asp-route-id="@item.UserId" class="btn btn-danger">Delete</a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>
